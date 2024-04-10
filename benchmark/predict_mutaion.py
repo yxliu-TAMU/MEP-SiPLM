@@ -10,7 +10,7 @@ import torch
 from proteinshake.utils import residue_alphabet
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
-
+ 
 from pst.downstream.mutation import DeepSequenceDataset
 from pst.esm2 import PST
 from pst.transforms import MutationDataset
