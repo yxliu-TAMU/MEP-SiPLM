@@ -1,0 +1,25 @@
+# conda environments:
+#
+protein                  /scratch/user/yxliu/.conda/envs/protein
+protein-graph         *  /scratch/user/yxliu/.conda/envs/protein-graph
+pymol                    /scratch/user/yxliu/.conda/envs/pymol
+                         /scratch/user/yxliu/colabfold/localcolabfold/colabfold-conda
+                         /scratch/user/yxliu/colabfold/localcolabfold/conda
+base                     /sw/eb/sw/Anaconda3/2021.11
+
+['B2L11_HUMAN_Dutta_2010_binding-Mcl-1', 'A0A247D711_LISMN_Stadelmann_2021', 'ACE2_HUMAN_Chan_2020', 'BLAT_ECOLX_Firnberg_2014', 'A0A192B1T2_9HIV1_Haddox_2018', 'ADRB2_HUMAN_Jones_2020', 'BLAT_ECOLX_Deng_2012', 'ANCSZ_Hobbs_2022', 'AMIE_PSEAE_Wrenbeck_2017', 'ARGR_ECOLI_Tsuboyama_2023_1AOY', 'A4D664_9INFA_Soh_2019', 'A0A2Z5U3Z0_9INFA_Doud_2016', 'AACC1_PSEAI_Dandage_2018', 'BLAT_ECOLX_Stiffler_2015', 'A0A1I9GEU1_NEIME_Kennouche_2019', 'A0A2Z5U3Z0_9INFA_Wu_2014', 'BLAT_ECOLX_Jacquier_2013', 'AICDA_HUMAN_Gajula_2014_3cycles', 'A4GRB6_PSEAI_Chen_2020']
+  0%|          | 0/217 [00:00<?, ?it/s] 11%|█         | 24/217 [00:34<04:33,  1.42s/it]
+Traceback (most recent call last):
+  File "/scratch/user/yxliu/ecen766/course_project/benchmark/baseline.py", line 45, in <module>
+    result = model(batch_tokens,repr_layers, return_contacts=True)
+  File "/scratch/user/yxliu/.conda/envs/protein-graph/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/scratch/user/yxliu/.conda/envs/protein-graph/lib/python3.9/site-packages/esm/model/esm2.py", line 141, in forward
+    contacts = self.contact_head(tokens, attentions)
+  File "/scratch/user/yxliu/.conda/envs/protein-graph/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/scratch/user/yxliu/.conda/envs/protein-graph/lib/python3.9/site-packages/esm/modules.py", line 355, in forward
+    attentions = apc(symmetrize(attentions))
+  File "/scratch/user/yxliu/.conda/envs/protein-graph/lib/python3.9/site-packages/esm/modules.py", line 38, in apc
+    avg = a1 * a2
+RuntimeError: CUDA out of memory. Tried to allocate 8.54 GiB (GPU 0; 39.39 GiB total capacity; 36.76 GiB already allocated; 1.41 GiB free; 36.84 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,6 +1,9 @@
 # Ignore the following directories
 dataset/
 benchmark/ProtSSN/
+benchmark/PST
+benchmark/SaProt/
+data/esm-variant_t6_8M.csv
 
 # But these files should be included
 !benchmark/ProtSSN/prepare_data.ipynb
