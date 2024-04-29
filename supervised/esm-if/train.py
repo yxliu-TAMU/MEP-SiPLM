@@ -6,7 +6,11 @@ from torch import optim
 import torch
 import os
 import time
-
+import argparse
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--test_fold", type=int, default=0)
+    return parser.parse_args()
 
 if __name__ == "__main__":
 
@@ -14,8 +18,10 @@ if __name__ == "__main__":
 
     data_path = "/scratch/user/atharvagashe22/Bioinformatics/P2/data/substitutions_singles"
     embedding_path = "/scratch/user/atharvagashe22/Bioinformatics/P2/embeddings"    # model_path = "../models/esm1_t34_670M_UR50S"
-    test_fold = 0
-    dataset = ProteinGymDataset(data_path,embedding_path)
+    args = parse_args()
+    test_fold = args.test_fold
+    #test_fold = 0
+    dataset = ProteinGymDataset(data_path,embedding_path,test_fold=test_fold)
     dataloader = DataLoader(dataset,batch_size=32,shuffle=True)
     #create a model object
     model = EsmIfMEP()
